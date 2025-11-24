@@ -14,16 +14,16 @@ const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              {/* Logo added to the left of the name */}
+            <div className="flex items-center gap-2.5">
+              {/* Logo added to the left of the name - Smaller size (h-12), tighter padding (p-0.5) */}
               <img 
                 src={IMAGES.LOGO} 
                 alt="Logo Footer" 
-                className="h-16 w-auto object-contain bg-white rounded-full p-1"
+                className="h-12 w-auto object-contain bg-white rounded-full p-0.5 shrink-0"
               />
               <div>
-                <h2 className="text-2xl font-serif font-bold text-white tracking-tight">{DOCTOR_SHORT_NAME}</h2>
-                <p className="text-medical-200 text-xs font-medium tracking-wide uppercase mt-1">
+                <h2 className="text-xl md:text-2xl font-serif font-bold text-white tracking-tight whitespace-nowrap">{DOCTOR_SHORT_NAME}</h2>
+                <p className="text-medical-200 text-xs font-medium tracking-wide uppercase mt-0.5">
                   {SPECIALTY}
                 </p>
               </div>
