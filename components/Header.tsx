@@ -59,11 +59,11 @@ const Header: React.FC = () => {
             
             {/* Logo & Brand Area */}
             <Link to="/" className="flex items-center gap-3 md:gap-4 group">
-              {/* Logo Image with responsive sizing */}
+              {/* Logo Image with responsive sizing - INCREASED SIZES HERE */}
               <img 
                 src={IMAGES.LOGO} 
                 alt={`Logo ${DOCTOR_SHORT_NAME}`} 
-                className={`transition-all duration-500 ease-in-out object-contain ${isScrolled ? 'h-10 w-auto' : 'h-12 md:h-16 w-auto'}`}
+                className={`transition-all duration-500 ease-in-out object-contain ${isScrolled ? 'h-12 w-auto' : 'h-14 md:h-20 w-auto'}`}
               />
               
               <div className="flex flex-col justify-center">

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ChevronRight } from 'lucide-react';
-import { DOCTOR_NAME, DOCTOR_SHORT_NAME, SPECIALTY, SOCIAL_LINKS, NAV_ITEMS, ADDRESS, PHONE_NUMBER } from '../constants';
+import { DOCTOR_NAME, DOCTOR_SHORT_NAME, SPECIALTY, SOCIAL_LINKS, NAV_ITEMS, ADDRESS, PHONE_NUMBER, IMAGES } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -14,13 +14,21 @@ const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="space-y-3">
-            <div>
-              <h2 className="text-2xl font-serif font-bold text-white tracking-tight">{DOCTOR_SHORT_NAME}</h2>
-              <p className="text-medical-200 text-xs font-medium tracking-wide uppercase mt-1">
-                {SPECIALTY}
-              </p>
+            <div className="flex items-center gap-3">
+              {/* Logo added to the left of the name */}
+              <img 
+                src={IMAGES.LOGO} 
+                alt="Logo Footer" 
+                className="h-16 w-auto object-contain bg-white rounded-full p-1"
+              />
+              <div>
+                <h2 className="text-2xl font-serif font-bold text-white tracking-tight">{DOCTOR_SHORT_NAME}</h2>
+                <p className="text-medical-200 text-xs font-medium tracking-wide uppercase mt-1">
+                  {SPECIALTY}
+                </p>
+              </div>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm leading-relaxed mt-2">
               Comprometidos con su salud y bienestar a través de procedimientos quirúrgicos seguros y de vanguardia.
             </p>
             <div className="flex gap-4 pt-2">
