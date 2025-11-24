@@ -15,8 +15,9 @@ export const ADDRESS = "Torre Médica Vitalis, Consultorio 402, Quito, Ecuador";
 // o la ruta local si estás en un entorno de desarrollo local.
 export const IMAGES = {
   HERO_BG: "https://i.ibb.co/v6BvcjXn/471684766-18487178419032633-8782377913534470010-n.jpg", // Imagen solicitada por usuario
-  DOCTOR_PROFILE: 
-  "https://i.ibb.co/RTJX8Y27/dramariela.png",
+  DOCTOR_PROFILE: "https://i.ibb.co/RTJX8Y27/dramariela.png",
+  // !IMPORTANTE: Reemplaza esta URL con la imagen del logo que subiste
+  LOGO: "https://i.ibb.co/TNpNX0G/Logo-Nenita.png", 
   BLOG: {
     LAPAROSCOPY: "https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     GALLBLADDER: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",

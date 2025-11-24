@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
-import { NAV_ITEMS, SOCIAL_LINKS, PHONE_NUMBER, DOCTOR_SHORT_NAME, SPECIALTY } from '../constants';
+import { NAV_ITEMS, SOCIAL_LINKS, PHONE_NUMBER, DOCTOR_SHORT_NAME, SPECIALTY, IMAGES } from '../constants';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,16 +57,26 @@ const Header: React.FC = () => {
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             
-            {/* Logo Area - Subtle scale down */}
-            <Link to="/" className="flex flex-col group justify-center">
-              <h1 className={`font-serif font-bold text-medical-900 tracking-tight group-hover:text-medical-800 transition-all duration-500 ease-in-out origin-left ${isScrolled ? 'text-2xl' : 'text-2xl md:text-3xl'}`}>
-                {DOCTOR_SHORT_NAME}
-              </h1>
-              {/* Specialty Subtitle - Stays visible, just slightly compacts */}
-              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isScrolled ? 'mt-0' : 'mt-1'}`}>
-                <span className={`text-medical-600 font-medium tracking-wide uppercase group-hover:text-medical-500 transition-colors block ${isScrolled ? 'text-xs' : 'text-xs md:text-sm'}`}>
-                  {SPECIALTY}
-                </span>
+            {/* Logo & Brand Area */}
+            <Link to="/" className="flex items-center gap-3 md:gap-4 group">
+              {/* Logo Image with responsive sizing */}
+              <img 
+                src={IMAGES.LOGO} 
+                alt={`Logo ${DOCTOR_SHORT_NAME}`} 
+                className={`transition-all duration-500 ease-in-out object-contain ${isScrolled ? 'h-10 w-auto' : 'h-12 md:h-16 w-auto'}`}
+              />
+              
+              <div className="flex flex-col justify-center">
+                {/* Name */}
+                <h1 className={`font-serif font-bold text-medical-900 tracking-tight group-hover:text-medical-800 transition-all duration-500 ease-in-out origin-left ${isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'}`}>
+                  {DOCTOR_SHORT_NAME}
+                </h1>
+                {/* Specialty Subtitle - Stays visible, just slightly compacts */}
+                <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isScrolled ? 'mt-0' : 'mt-1'}`}>
+                  <span className={`text-medical-600 font-medium tracking-wide uppercase group-hover:text-medical-500 transition-colors block ${isScrolled ? 'text-xs' : 'text-xs md:text-sm'}`}>
+                    {SPECIALTY}
+                  </span>
+                </div>
               </div>
             </Link>
 
