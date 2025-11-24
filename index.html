@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dra. Mariela Andrade Fierro | Cirugía General y Laparoscópica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Updated Fonts: Manrope (Modern Headings) and Lato (Clean Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Lato', 'sans-serif'],
+              // Mapping 'Manrope' to serif utility so we keep the code structure but get the modern look for headings
+              serif: ['Manrope', 'sans-serif'], 
+            },
+            colors: {
+              medical: {
+                50: '#F5F9FB',  
+                100: '#E6EFF4', 
+                200: '#C8DCE8',
+                500: '#7AA3C3', // Azul suave intermedio
+                600: '#5F88A8', 
+                800: '#486D8C', // Azul acero suavizado
+                900: '#3E607A', // Azul Pizarra (Slate Blue) - Tono principal para Headers y CTA
+                950: '#233848', // Azul Ultra Oscuro - Para TopBar y Footer
+              },
+              accent: {
+                500: '#57B8B2', // Teal más pastel/mate
+                600: '#429E99',
+                300: '#86DDD8'
+              }
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+
+      /* PROPORTIONAL SCALING FOR LARGE SCREENS */
+      @media (min-width: 1440px) {
+        html {
+          font-size: 110%; /* Increases all text and spacing by 10% on large monitors */
+        }
+      }
+      @media (min-width: 1920px) {
+        html {
+          font-size: 115%; /* Increases even more for very large screens */
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@6.22.3"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <div id="root"></div>
+  </body>
+</html>
