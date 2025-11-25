@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
-import { Send, MapPin, Phone, Mail, Clock, CheckCircle } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Clock, CheckCircle, ExternalLink, Navigation } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
-import { CONTACT_DETAILS, DOCTOR_SHORT_NAME, IMAGES } from '../constants';
+import { CONTACT_DETAILS, DOCTOR_SHORT_NAME, IMAGES, GOOGLE_MAPS_URL } from '../constants';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -164,20 +165,39 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-      {/* Map Placeholder */}
-      <div className="h-96 w-full bg-slate-200 relative">
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="text-center text-slate-800 bg-white/90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-                <MapPin size={48} className="mx-auto mb-2 text-medical-600" />
-                <p className="font-semibold text-lg">Mapa de Ubicación</p>
-                <p className="text-sm">Torre Médica Vitalis, Quito</p>
-            </div>
+      {/* INTERACTIVE MAP SECTION */}
+      <div className="h-[500px] w-full relative group border-t border-slate-200 bg-slate-100">
+        {/* Interactive Google Map (Query Embed guarantees centering on the POI) */}
+        <iframe 
+          src="https://maps.google.com/maps?q=Hospital%20Metropolitano%20Quito&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={true} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          className="absolute inset-0 w-full h-full"
+          title="Mapa Hospital Metropolitano"
+        ></iframe>
+
+        {/* Floating Action Button (Does NOT block the map) */}
+        <div className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none">
+           <a 
+            href={GOOGLE_MAPS_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="pointer-events-auto bg-white/95 backdrop-blur-md border border-white/50 text-slate-800 px-6 py-3 rounded-full shadow-2xl hover:-translate-y-1 hover:scale-105 transition-all duration-300 flex items-center gap-4 cursor-pointer group"
+          >
+              <div className="bg-green-500 text-white p-2 rounded-full animate-pulse shadow-md group-hover:bg-green-600">
+                 <Navigation size={20} fill="currentColor" />
+              </div>
+              <div className="text-left">
+                 <p className="font-bold text-medical-900 leading-none">Abrir Navegación GPS</p>
+                 <p className="text-xs text-slate-500 font-medium mt-1">Cómo llegar al Hospital</p>
+              </div>
+              <ExternalLink size={16} className="text-slate-400 ml-1" />
+           </a>
         </div>
-        <img 
-            src={IMAGES.MAP_BG}
-            alt="Mapa de la ciudad" 
-            className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-        />
       </div>
     </div>
   );

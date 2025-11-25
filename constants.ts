@@ -7,7 +7,9 @@ export const DOCTOR_SHORT_NAME = "Dra. Mariela Andrade F.";
 export const SPECIALTY = "Cirujana General y Laparoscópica";
 export const PHONE_NUMBER = "+593 987 100 128";
 export const EMAIL_ADDRESS = "contacto@dramarielaandrade.com";
-export const ADDRESS = "Torre Médica Vitalis, Consultorio 402, Quito, Ecuador";
+export const ADDRESS = "Torre Médica 3 del Hospital Metropolitano, Quito, Ecuador";
+// Link inteligente para abrir navegación GPS
+export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/UUwqRs7k1brd9ZpC6";
 
 // IMÁGENES DEL PROYECTO
 export const IMAGES = {
@@ -22,14 +24,14 @@ export const IMAGES = {
   },
   PROCEDURES: {
     // Imágenes estables de Unsplash relacionadas con medicina/cirugía
-    // Updated broken link for LAPAROSCOPY
-    LAPAROSCOPY: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000", 
+    // Updated stable link for LAPAROSCOPY (Surgery)
+    LAPAROSCOPY: "https://images.unsplash.com/photo-1606164287413-7977a45e4860?auto=format&fit=crop&q=80&w=1000", 
     GALLBLADDER: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&fit=crop&q=80&w=1000",
     HERNIAS: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=1000",
     APPENDIX: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1000",
     BIOPSY: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1000",
-    // Updated broken link for TRAUMA (ER lights/Monitor)
-    TRAUMA: "https://images.unsplash.com/photo-1516574187841-69301976e499?auto=format&fit=crop&q=80&w=1000" 
+    // Updated stable link for TRAUMA (Emergency/Medical)
+    TRAUMA: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1000" 
   },
   MAP_BG: "https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
 };
@@ -184,7 +186,7 @@ export const BLOG_DATA: BlogPost[] = [
     title: 'Ventajas de la Cirugía Laparoscópica',
     excerpt: 'Descubra por qué la cirugía mínimamente invasiva es la mejor opción para reducir el tiempo de recuperación y el dolor postoperatorio.',
     imageUrl: IMAGES.BLOG.LAPAROSCOPY,
-    contentImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Surgery scene
+    contentImage: "https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Surgery scene
     date: '15 Oct 2023',
     author: 'Dra. Mariela Andrade',
     category: 'Educación',
