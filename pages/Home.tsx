@@ -54,23 +54,21 @@ const Home: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-            {/* Reduced width from w-1/2 to w-5/12 (approx 40%) or w-1/3 (33%) for smaller image */}
+            {/* Image */}
             <div className="md:w-5/12 lg:w-1/3 relative">
               <div className="relative rounded-lg overflow-hidden shadow-2xl bg-gray-100 aspect-[4/5]">
-                 {/* Doctor's Photo */}
                 <img 
                   src={IMAGES.DOCTOR_PROFILE}
                   alt={DOCTOR_NAME} 
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Scaled down badge slightly to match smaller image */}
               <div className="absolute -bottom-5 -right-5 bg-medical-50 p-5 rounded-lg shadow-lg border-l-4 border-accent-500 hidden md:block">
                 <p className="text-3xl font-bold text-medical-900 tracking-tight">10+</p>
                 <p className="text-slate-600 text-xs font-medium uppercase tracking-widest">Años de Experiencia</p>
               </div>
             </div>
-            {/* Increased text width from w-1/2 to w-7/12 or w-2/3 */}
+            {/* Content */}
             <div className="md:w-7/12 lg:w-2/3 space-y-6">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 tracking-tight">
                 Sobre la {DOCTOR_NAME}
@@ -80,7 +78,6 @@ const Home: React.FC = () => {
                 Comprometida con la excelencia médica y el trato humano, la Dra. Mariela Andrade combina técnica quirúrgica avanzada con una atención cálida y personalizada.
               </p>
               
-              {/* Updated background to bg-slate-100 for better contrast */}
               <div className="bg-slate-100 p-6 rounded-lg border border-slate-200">
                 <h3 className="font-semibold text-medical-900 mb-4 flex items-center gap-2 tracking-wide">
                   <Stethoscope className="text-accent-500" /> Formación Académica
@@ -114,7 +111,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Values / Highlights */}
+      {/* Values / Highlights - WITH ANIMATIONS */}
       <section className="py-20 bg-medical-50">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle 
@@ -140,11 +137,13 @@ const Home: React.FC = () => {
                 desc: "Seguimiento cercano desde el diagnóstico hasta su total recuperación post-operatoria."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-slate-100">
-                <div className="w-14 h-14 bg-medical-100 text-medical-600 rounded-lg flex items-center justify-center mb-6">
+              // Added 'group' for hover effects
+              <div key={idx} className="group bg-white p-8 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 cursor-default">
+                {/* Icon Container with Animation */}
+                <div className="w-14 h-14 bg-medical-100 text-medical-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-medical-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <item.icon size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight">{item.title}</h3>
+                <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight group-hover:text-medical-700 transition-colors">{item.title}</h3>
                 <p className="text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
@@ -154,7 +153,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom - Reduced padding (py-12) but kept bg-medical-900 (lighter than footer) */}
+      {/* CTA Bottom */}
       <section className="py-12 bg-medical-900 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 tracking-tight">Comience su camino hacia una vida saludable</h2>

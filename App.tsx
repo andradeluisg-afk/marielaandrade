@@ -4,7 +4,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Procedures from './pages/Procedures';
+import ProcedureDetail from './pages/ProcedureDetail';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 
@@ -34,7 +36,9 @@ const MainContent = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/procedimientos" element={<Procedures />} />
+            <Route path="/procedimientos/:id" element={<ProcedureDetail />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contacto" element={<Contact />} />
           </Routes>

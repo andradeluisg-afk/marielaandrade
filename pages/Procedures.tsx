@@ -1,51 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, Scissors, AlertCircle, HeartPulse, Search } from 'lucide-react';
+import { PROCEDURES_DATA } from '../constants';
 import SectionTitle from '../components/SectionTitle';
-
-const PROCEDURES_LIST = [
-  {
-    id: 'laparoscopia',
-    title: 'Cirugía Laparoscópica Avanzada',
-    description: 'Técnica mínimamente invasiva que utiliza pequeñas incisiones, resultando en menos dolor y una recuperación más rápida.',
-    icon: Activity
-  },
-  {
-    id: 'vesicula',
-    title: 'Colecistectomía (Vesícula)',
-    description: 'Extracción de la vesícula biliar por vía laparoscópica. Tratamiento definitivo para cálculos biliares.',
-    icon: Scissors
-  },
-  {
-    id: 'hernias',
-    title: 'Cirugía de Hernias',
-    description: 'Reparación de hernias inguinales, umbilicales y de pared abdominal mediante mallas de alta tecnología.',
-    icon: AlertCircle
-  },
-  {
-    id: 'apendice',
-    title: 'Apendicectomía',
-    description: 'Cirugía de urgencia o programada para la extracción del apéndice inflamado mediante laparoscopia.',
-    icon: HeartPulse
-  },
-  {
-    id: 'biopsias',
-    title: 'Biopsias y Masas',
-    description: 'Extracción de tejidos o masas de tejidos blandos para estudio patológico y tratamiento.',
-    icon: Search
-  },
-  {
-    id: 'trauma',
-    title: 'Cirugía de Trauma',
-    description: 'Atención especializada en urgencias quirúrgicas y manejo del paciente politraumatizado.',
-    icon: AlertCircle
-  }
-];
 
 const Procedures: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Page Header - Uses medical-900 (Standard Slate Blue) */}
+      {/* Page Header */}
       <div className="bg-medical-900 text-white py-16">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-serif font-bold mb-4">Procedimientos Quirúrgicos</h1>
@@ -62,14 +23,14 @@ const Procedures: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROCEDURES_LIST.map((proc) => (
-            <div 
+          {PROCEDURES_DATA.map((proc) => (
+            <Link 
+              to={`/procedimientos/${proc.id}`}
               key={proc.id} 
-              className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-slate-100"
+              className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-slate-100 flex flex-col"
             >
               <div className="h-2 bg-gradient-to-r from-medical-500 to-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
-              <div className="p-8">
-                {/* Darkened background to medical-100 */}
+              <div className="p-8 flex-grow">
                 <div className="w-16 h-16 bg-medical-100 rounded-full flex items-center justify-center mb-6 text-medical-700 group-hover:bg-medical-600 group-hover:text-white transition-colors duration-300">
                   <proc.icon size={32} />
                 </div>
@@ -77,10 +38,13 @@ const Procedures: React.FC = () => {
                   {proc.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  {proc.description}
+                  {proc.shortDescription}
                 </p>
               </div>
-            </div>
+              <div className="px-8 pb-8 mt-auto">
+                 <span className="text-accent-600 font-semibold text-sm group-hover:underline">Ver detalles &rarr;</span>
+              </div>
+            </Link>
           ))}
         </div>
 

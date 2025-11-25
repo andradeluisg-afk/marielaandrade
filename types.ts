@@ -14,16 +14,23 @@ export interface SocialLink {
 export interface Procedure {
   id: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   icon: LucideIcon;
+  benefits: string[];
+  recoveryTime: string;
+  image: string;
 }
 
 export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
+  content: string[]; // Array of paragraphs for the full article
   date: string;
+  author: string;
   imageUrl: string;
+  contentImage?: string; // Image to be displayed inside the content body
   category: string;
 }
 

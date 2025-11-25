@@ -1,36 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import { IMAGES } from '../constants';
-
-const BLOG_POSTS = [
-  {
-    id: '1',
-    title: 'Ventajas de la Cirugía Laparoscópica',
-    excerpt: 'Descubra por qué la cirugía mínimamente invasiva es la mejor opción para reducir el tiempo de recuperación y el dolor postoperatorio.',
-    date: '15 Oct 2023',
-    author: 'Dra. Mariela Andrade',
-    imageUrl: IMAGES.BLOG.LAPAROSCOPY,
-    category: 'Educación'
-  },
-  {
-    id: '2',
-    title: 'Cálculos en la Vesícula: Síntomas y Tratamiento',
-    excerpt: 'Aprenda a identificar los signos de alerta de problemas en la vesícula biliar y cuándo es el momento de acudir al cirujano.',
-    date: '28 Sep 2023',
-    author: 'Dra. Mariela Andrade',
-    imageUrl: IMAGES.BLOG.GALLBLADDER,
-    category: 'Salud Digestiva'
-  },
-  {
-    id: '3',
-    title: 'Preparación para una Cirugía Programada',
-    excerpt: 'Guía completa sobre qué hacer (y qué no hacer) antes de someterse a un procedimiento quirúrgico general.',
-    date: '10 Sep 2023',
-    author: 'Dra. Mariela Andrade',
-    imageUrl: IMAGES.BLOG.PREP,
-    category: 'Consejos'
-  }
-];
+import { BLOG_DATA } from '../constants';
 
 const Blog: React.FC = () => {
   return (
@@ -47,18 +18,21 @@ const Blog: React.FC = () => {
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {BLOG_POSTS.map((post) => (
-            <article key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden border border-gray-100">
+          {BLOG_DATA.map((post) => (
+            <Link 
+              to={`/blog/${post.id}`}
+              key={post.id} 
+              className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden border border-gray-100 group"
+            >
               <div className="h-56 overflow-hidden bg-gray-100">
                 <img 
                   src={post.imageUrl} 
                   alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
-                  {/* Darkened background to medical-100 */}
                   <span className="flex items-center gap-1 bg-medical-100 text-medical-700 px-2 py-1 rounded-full font-medium">
                     {post.category}
                   </span>
@@ -66,7 +40,7 @@ const Blog: React.FC = () => {
                     <Calendar size={12} /> {post.date}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3 leading-snug hover:text-medical-600 transition-colors cursor-pointer">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 leading-snug group-hover:text-medical-600 transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-slate-600 text-sm mb-6 flex-1">
@@ -76,12 +50,12 @@ const Blog: React.FC = () => {
                   <span className="flex items-center gap-2 text-xs text-slate-500 font-medium">
                     <User size={12} /> {post.author}
                   </span>
-                  <button className="text-accent-600 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                  <span className="text-accent-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                     Leer más <ArrowRight size={16} />
-                  </button>
+                  </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
