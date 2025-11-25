@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mt-2">
-              Comprometidos con su salud y bienestar a través de procedimientos quirúrgicos seguros y de vanguardia.
+              Comprometida con su salud y bienestar a través de procedimientos quirúrgicos seguros y de vanguardia.
             </p>
             <div className="flex gap-4 pt-2">
               {SOCIAL_LINKS.map((link) => (
